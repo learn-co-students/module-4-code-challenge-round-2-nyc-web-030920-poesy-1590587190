@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import PoemsContainer from "./PoemsContainer";
 import NewPoemForm from "./NewPoemForm";
+import Favorites from "./Favorites";
 
 const poemUrl = 'http://localhost:6001/poems'
 
@@ -10,6 +11,7 @@ class App extends React.Component {
   state = {
     poems: [],
     toggled: false,
+    favorites: [],
   }
 
   loadPoems =() => {
@@ -39,8 +41,29 @@ class App extends React.Component {
         .then(this.handleToggle())
   }
 
+  deletePoem = (id) => {
+    fetch(`${poemUrl}/${id}`, {
+      method: 'DELETE'})
+        .then(this.loadPoems())
+  }
+
+  checkStateVals = () => {
+    let arrayCount = this.state.favorites
+    return arrayCount.length
+  }
+
+  addToFav = (newFav) => {
+    // doesn't remove from fav list, can add multiple of same book, stores in state
+    // vs doing a PATCH req
+        //didn't remove properly  
+
+      this.setState({ favorites: [...this.state.favorites, newFav]})
+  
+  }
+
   render() {
     
+    const { favorites } = this.state.favorites
     return (
       <div className="app">
         <div className="sidebar">
@@ -49,9 +72,15 @@ class App extends React.Component {
             <NewPoemForm 
               addNewPoem={this.addNewPoem}
             /> : null}
+            
+          {this.checkStateVals() ? <Favorites favorites={this.state.favorites} /> : null }
+          
         </div>
         <PoemsContainer
           poems={this.state.poems}
+          addToFav={this.addToFav}
+          deletePoem={this.deletePoem}
+          favorites={this.state.favorites}
         />
       </div>
     );

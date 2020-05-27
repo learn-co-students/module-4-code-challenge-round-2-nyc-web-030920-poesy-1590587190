@@ -6,10 +6,12 @@ class PoemsContainer extends React.Component {
     return (
       <div className="poems-container">
         {
-          this.props.poems.map(poem => <Poem 
+          this.props.poems.map((poem) => <Poem 
             key={poem.id}
             poem={poem}
-            
+            addToFav={this.props.addToFav}
+            deletePoem={this.props.deletePoem}
+            favorites={this.props.favorites}
           />)
         }
       </div>
