@@ -27,13 +27,33 @@ class App extends React.Component {
     this.setState((currentState)=> ({show: !currentState.show}))
   }
 
+  handleSubmit=(data)=>{
+    
+    // console.log('handlesubmit data:', data)
+
+    fetch(`http://localhost:6001/poems`, {
+      method: 'POST',
+      headers: 
+      {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(r=>r.json())
+    .then(newData => this.getpoems())
+    
+  }
+
+  // fetch(get_Backend)
+
   render() {
-    console.log('app state:', this.state)
+    // console.log('app state:', this.state)
     return (
       <div className="app">
         <div className="sidebar">
           <button onClick={this.toggle}> Show/hide new poem form</button>
-          {this.state.show && <NewPoemForm />}
+          {this.state.show && <NewPoemForm handleSubmit={this.handleSubmit}/>}
         </div>
         <PoemsContainer poems={this.state.poems} />
       </div>
