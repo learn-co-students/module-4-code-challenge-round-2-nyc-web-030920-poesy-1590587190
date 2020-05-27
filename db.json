@@ -53,6 +53,30 @@
       "content": "Once upon a time, there was a boy......",
       "author": "John lenon",
       "id": 9
+    },
+    {
+      "title": "foood",
+      "content": "hellloo food",
+      "author": "anil",
+      "id": 10
+    },
+    {
+      "title": "Flatiron School",
+      "content": "Best bootcamp ever!!!!!!!",
+      "author": "Karen",
+      "id": 11
+    },
+    {
+      "title": "Helloo World!!",
+      "content": "Helloooooooooooooooooo!!!!!!!!",
+      "author": "Aaron Silver",
+      "id": 12
+    },
+    {
+      "title": "New World",
+      "content": "Its a new world, its a new day!!!!!",
+      "author": "Justin",
+      "id": 13
     }
   ]
 }
