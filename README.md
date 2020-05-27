@@ -32,9 +32,9 @@ These are the routes you will need:
 As a user:
 
 [X]1. When the app starts, I can see all currently created poems.
-2. I can show/hide the form to create new poems.
+[X]2. I can show/hide the form to create new poems.
 [X]3. I can create poems and they are still there when I refresh the page.
-4. I can mark poems as read which will change the text of that button to "Mark as unread".
+[X]4. I can mark poems as read which will change the text of that button to "Mark as unread".
 
 ## Advanced Deliverables
 

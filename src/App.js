@@ -7,6 +7,7 @@ class App extends React.Component {
 
   state={
     poems: [],
+    toggle: false
   }
 
   componentDidMount(){
@@ -25,13 +26,19 @@ class App extends React.Component {
     })
   }
 
+  handleToggle = () => {
+    this.setState({
+      toggle: !this.state.toggle
+    })
+  }
+
   render() {
-    // console.log("First Console Log", this.state.poems)
+    console.log("First Console Log", this.state.poems)
     return (
       <div className="app">
         <div className="sidebar">
-          <button>Show/hide new poem form</button>
-          {false && <NewPoemForm addForm={this.addForm} />}
+          <button onClick = {() => this.handleToggle()}>Show/hide new poem form</button>
+          {this.state.toggle && <NewPoemForm addForm={this.addForm} />}
         </div>
         <PoemsContainer poems={this.state.poems} />
       </div>
