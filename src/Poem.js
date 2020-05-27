@@ -1,15 +1,23 @@
 import React from "react";
 
 class Poem extends React.Component {
+    state = {
+      read: true
+    }
+
+    toggleClicked = () =>{
+      this.setState({read: !this.state.read})
+    }
   render() {
+    const{title,content,author} = this.props.poem
     return (
       <div>
-        <h3>Title</h3>
-        <p>Content</p>
+        <h3>{title}</h3>
+        <p>{content}</p>
         <p>
-          <strong>- By Author</strong>
+          <strong>{author}</strong>
         </p>
-        <button>Mark as read</button>
+        <button onClick = {this.toggleClicked}>{this.state.read ? 'Mark as read' : 'Mark as unread'}</button>
       </div>
     );
   }
