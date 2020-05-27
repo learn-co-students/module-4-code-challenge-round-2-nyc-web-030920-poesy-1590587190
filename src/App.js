@@ -12,8 +12,7 @@ const headers = {
 class App extends React.Component {
   state = { 
     allPoems: [], 
-    visible: false, 
-    submittedPoem: []
+    visible: false
   }
 
   componentDidMount() { 
@@ -33,7 +32,7 @@ class App extends React.Component {
   }
   
   submitNewPoem = (event, newPoem) => { 
-    event.preventDefault;
+    event.preventDefault();
 
     fetch(allPoemsUrl, { 
       method: "POST", 
@@ -48,7 +47,7 @@ class App extends React.Component {
       .then(submittedPoem => { 
         let allPoemsCopy = [...this.state.allPoems]
         this.setState({ 
-          allPoems: 
+          allPoems: [...allPoemsCopy, submittedPoem]
          })
       })
   }
