@@ -25,10 +25,20 @@ class Poem extends React.Component {
           <strong>{this.props.poem.author}</strong>
         </p>
         {/* Confued by this, COME BACK TO IT !!!, delete button? */}
-    <button onClick={this.handleClick}> {this.state.read ? "Mark as read": "Mark as unread"}Mark as read</button>
+    <button onClick={this.handleClick}> {this.state.read ? "Mark as read": "Mark as unread"}</button>
       </div>
     );
   }
 }
 
 export default Poem;
+
+// STARTED THIS BUT NO TIME 
+// handleDelete = () => {
+//   fetch ('http://localhost:6001/poems/poems/${id}',{
+//     method: "DELETE"
+//     headers: {
+//       ""
+//     }
+//   })
+// }
