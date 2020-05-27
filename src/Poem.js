@@ -18,7 +18,8 @@ class Poem extends React.Component {
         <p>
           <strong>- {author}</strong>
         </p>
-        <button onClick={this.markRead}>{this.state.read === false ? "Mark read" : "Mark as unread"} </button>
+        <button onClick={this.markRead}>{this.state.read === false ? "Mark read" : "Mark as unread"}</button>
+        <button onClick={() => this.props.deletePoem(this.props)}>Delete Poem</button>
       </div>
     );
   }
